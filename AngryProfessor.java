@@ -17,7 +17,7 @@ public class AngryProfessor {
 			System.out.println(T_NumberOfTestCases);
 
 			for (int i = 0; i < T_NumberOfTestCases; i++) {
-				while (true) { 
+				while (true) {
 					try {
 						System.out.println(">> Enter Number of total Student: ");
 						N_NumberOfStudents = sc.nextInt();
@@ -33,27 +33,55 @@ public class AngryProfessor {
 					}
 
 				}
-				
-				System.out.println(">> Enter Number of Present Student: ");
-				K_NumberOfPresentStudent = sc.nextInt();
+				while (true) {
+					try {
+						System.out.println(">> Enter Number of Present Student: ");
+						K_NumberOfPresentStudent = sc.nextInt();
+						if (K_NumberOfPresentStudent >= 1 && K_NumberOfPresentStudent <= N_NumberOfStudents) {
+							break;
+						} else {
+							System.err.println("Enter between the range of Number of Students");
+						}
+
+					} catch (InputMismatchException e) {
+						System.err.println("Invalid Input");
+						sc.next();
+					}
+
+				}
 
 				System.out.println(N_NumberOfStudents + " " + K_NumberOfPresentStudent);
 
 				for (int a = 0; a < N_NumberOfStudents; a++) {
-					System.out.println(">> Enter time Student Entered: ");
-					b = sc.nextInt();
-					if (b <= 0) {
-						count += 1;
-					}
 
+					while (true) {
+						try {
+							System.out.println(">> Enter time Student Entered: ");
+							b = sc.nextInt();
+							if (b >= -100 && b <= 100) {
+								if (b <= 0) {
+									count += 1;
+									break;
+								}
+								break;
+							} else {
+								System.err.println("Enter between the range of -100 - 100");
+							}
+
+						} catch (InputMismatchException e) {
+							System.err.println("Invalid Input");
+							sc.next();
+						}
+					}
 				}
+
 				if (count >= K_NumberOfPresentStudent) {
 					System.out.println("NO");
 				} else {
 					System.out.println("YES");
 				}
 			}
-			
+
 		} else {
 			System.err.println("Enter between 1-10");
 		}
