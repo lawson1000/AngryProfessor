@@ -8,7 +8,7 @@ public class AngryProfessor {
 	int K_NumberOfPresentStudent;
 	int N_NumberOfStudents;
 	int T_NumberOfTestCases;
-	int b;
+	int Attendee;
 	int count = 0;
 
 	public AngryProfessor(int T_NumberOfTestCases) {
@@ -57,9 +57,9 @@ public class AngryProfessor {
 					while (true) {
 						try {
 							System.out.println(">> Enter time Student Entered: ");
-							b = sc.nextInt();
-							if (b >= -100 && b <= 100) {
-								if (b <= 0) {
+							Attendee = sc.nextInt();
+							if (Attendee >= -100 && Attendee <= 100) {
+								if (Attendee <= 0) {
 									count += 1;
 									break;
 								}
